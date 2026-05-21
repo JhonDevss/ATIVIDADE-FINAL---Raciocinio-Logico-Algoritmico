@@ -1,0 +1,72 @@
+<script>
+// ATIVIDADE FINAL-RACIOCÍNIO LÓGICO
+
+//=========================================
+//INTEGRANTES DA EQUIPE: 
+// Gisela de Sousa Cavalcante
+// Jhonatthan Filho de Sousa Lacerda 
+// João Vitor Lima Quintela
+// Josué Lira de Andrade
+// Luis Otávio Oliveira da Cunha
+// Raimundo Oscar de Araújo Neto
+//=========================================
+
+
+// Prompt para quantidade de alunos
+let nAlunos = parseInt(prompt("Quantidade de alunos: "));
+
+// Variáveis em vetores para notas das avaliações e media.
+let av1 = [];
+let av2 = [];
+let medias = [];
+
+// Variáveis para quantidade de aprovados e reprovados.
+let aprovados = 0;
+let reprovados = 0;
+
+for (let i = 0; i < nAlunos; i++) {
+
+    // Leitura da AV1
+    av1[i] = parseFloat(prompt("Digite a nota da AV1 do aluno " + (i + 1) + ": "));
+
+    // Leitura da AV2
+    av2[i] = parseFloat(prompt("Digite a nota da AV2 do aluno " + (i + 1) + ": "));
+
+    // Media simples
+    medias[i] = (av1[i] + av2[i]) / 2;
+
+    if (medias[i] > 5.0) {
+        aprovados++
+    } else {
+        reprovados++
+    }
+}
+
+// Ordenação pelo método bolha (Crescente)
+
+for (let i = 0; i < medias.length - 1; i++) {
+    for (let j = 0; j < medias.length - 1 - i; j++) {
+        if (medias[j] > medias[j + 1]) {
+            let auxiliar = medias[j];
+            medias[j] = medias[j + 1];
+            medias[j + 1] = auxiliar;
+        }
+    }
+}
+
+// Impressão dos resultados na página web
+document.write("RESULTADOS");
+document.write("<br>");
+document.write("Médias em ordem crescente:");
+document.write("<br>");
+
+for (let i = 0; i < medias.length; i++) {
+    document.write("Aluno " + (i + 1) + ": " + medias[i].toFixed(2) + "<br>");
+}
+
+document.write("<br>");
+document.write("Quantidade de aprovados: " + aprovados + "<br>");
+document.write("Quantidade de reprovados: " + reprovados + "<br>");
+
+
+</script>
